@@ -10,22 +10,21 @@ for key, value := range oldMap {
     newMap[key] = value
 }
 
- */
+*/
 
-
-func main()  {
-	nums:=[]int{1,2,3}
-	sum:=0
+func main() {
+	nums := []int{1, 2, 3}
+	sum := 0
 
 	// _ 是key 可省略不写
-	for _,num:=range nums{
-		sum+=num
+	for _, num := range nums {
+		sum += num
 	}
 
-	for a,num:=range  nums{
-		sum+=num
-		if num == 3{
-			fmt.Println("index",num)
+	for a, num := range nums {
+		sum += num
+		if num == 3 {
+			fmt.Println("index", num)
 		}
 		fmt.Println(a)
 	}
@@ -33,10 +32,10 @@ func main()  {
 
 	fmt.Println("--------------------")
 	//range 也可以用于 map 上
-	maps :=map[string]string{"a":"jack","b":"rose"}
+	maps := map[string]string{"a": "jack", "b": "rose"}
 
-	for a,v:=range maps{
-		fmt.Printf("key%s-val%s\n",a,v)
+	for a, v := range maps {
+		fmt.Printf("key%s-val%s\n", a, v)
 	}
 
 	fmt.Println("-----------------")

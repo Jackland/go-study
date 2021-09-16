@@ -11,21 +11,21 @@ ch <- v    // 把 v 发送到通道 ch
 v := <-ch  // 从 ch 接收数据
            // 并把值赋给 v
 
- */
+*/
 
-func sum(s []int, c chan int)  {
-	sum:=0
-	for _, v:=range s{
+func sum(s []int, c chan int) {
+	sum := 0
+	for _, v := range s {
 		sum += v
 	}
 	//将sum 数据推到 c
 	c <- sum
 }
 
-func main()  {
-	s:=[]int{1,2,3,4,5,6}
+func main() {
+	s := []int{1, 2, 3, 4, 5, 6}
 
-	c:=make(chan int) //创建一个通道
+	c := make(chan int) //创建一个通道
 
 	//:len(s)/2 从 0开始 取到  len(s)/2 这个长度的数组 即 [0,3]
 
@@ -33,13 +33,12 @@ func main()  {
 
 	fmt.Println(s[len(s)/2:])
 
-	go sum(s[:len(s)/2],c)
+	go sum(s[:len(s)/2], c)
 	go sum(s[len(s)/2:], c)
 
-	x,y:=<-c,<-c
+	x, y := <-c, <-c
 
-	fmt.Printf("x的值：%d,y的值：%d",x ,y)
-
+	fmt.Printf("x的值：%d,y的值：%d", x, y)
 
 	//定义一个带缓存 通道
 	/**
@@ -51,19 +50,16 @@ func main()  {
 	不过由于缓冲区的大小是有限的，所以还是必须有接收端来接收数据的，否则缓冲区一满，数据发送端就无法再发送数据了。
 
 	注意：如果通道不带缓冲，发送方会阻塞直到接收方从通道中接收了值。如果通道带缓冲，发送方则会阻塞直到发送的值被拷贝到缓冲区内；如果缓冲区已满，则意味着需要等待直到某个接收方获取到一个值。接收方在有值可以接收之前会一直阻塞。
-	 */
+	*/
 
 	fmt.Println("--------")
-	ch := make(chan int ,2)
+	ch := make(chan int, 2)
 
-	ch<- 1
-	ch<- 2
+	ch <- 1
+	ch <- 2
 
 	fmt.Println(ch)
 	fmt.Println(<-ch)
 	fmt.Println(<-ch)
-
-
-
 
 }

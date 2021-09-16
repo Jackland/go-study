@@ -20,29 +20,25 @@ len() 和 cap() 返回结果可相同和不同。
 5、从切片或数组“截取”:slice := array[1:5] 或 slice := sourceSlice[1:5]
 */
 
-func main()  {
+func main() {
 
-	arr := []int {1,2,3}
+	arr := []int{1, 2, 3}
 
-	str := []string{"aa","bb"}
+	str := []string{"aa", "bb"}
 
 	fmt.Println(str)
 	fmt.Println(arr)
 
-
-	a:=make([]int,0)
+	a := make([]int, 0)
 	//fmt.Println(a[0:1])
-	n:=10
-	for i:=0;i<=n;i++{
+	n := 10
+	for i := 0; i <= n; i++ {
 		a = append(a, 1)
 		fmt.Printf("len=%d cap=%d\n", len(a), cap(a))
 	}
 	fmt.Println(a)
 
-
 	//b:= append(a[0:1], 3)
-
-
 
 	fmt.Println(a[0])
 	fmt.Println(a[1])

@@ -3,13 +3,13 @@ package main
 import "fmt"
 
 type Books struct {
-	title string
-	author string
+	title   string
+	author  string
 	subject string
 	book_id int
 }
 
-func main()  {
+func main() {
 
 	// 创建一个新的结构体
 	fmt.Println(Books{"Go 语言", "www.runoob.com", "Go 语言教程", 6495407})
@@ -21,4 +21,3 @@ func main()  {
 	fmt.Println(Books{title: "Go 语言", author: "www.runoob.com"})
 
 }
-

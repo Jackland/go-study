@@ -6,10 +6,10 @@ import "fmt"
 Map 集合是无序的 key-value 数据结构。
 
 Map 集合中的 key / value 可以是任意类型，但所有的 key 必须属于同一数据类型，所有的 value 必须属于同一数据类型，key 和 value 的数据类型可以不相同
- */
-func main()  {
+*/
+func main() {
 
-	var p  map[int]string
+	var p map[int]string
 	p = make(map[int]string)
 
 	p[0] = "my"
@@ -25,9 +25,9 @@ func main()  {
 	map2[2] = "ccc"
 	fmt.Println(map2)
 
-	map3:= map[int]string{
-		1:"tom",
-		2:"jack",
+	map3 := map[int]string{
+		1: "tom",
+		2: "jack",
 	}
 	fmt.Println(map3)
 

@@ -6,18 +6,17 @@ import "fmt"
 
 type_name 为类型，expression 为表达式。
 
- */
+*/
 
-func main()  {
+func main() {
 
-	var sum int =12
-	var count int =4
+	var sum int = 12
+	var count int = 4
 	var mean float32
 
 	mean = float32(sum) / float32(count)
 
-	fmt.Printf("mean的值 ==> %f",mean)
-
+	fmt.Printf("mean的值 ==> %f", mean)
 
 	fmt.Println("--------")
 
@@ -26,8 +25,5 @@ func main()  {
 	var b int32
 	b = int32(a)
 	fmt.Printf("b 为 : %d", b)
-
-
-
 
 }
