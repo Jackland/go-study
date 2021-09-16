@@ -1,5 +1,10 @@
 package main
 
+/**
+1，开发一个简单的计算器 了解go的包依赖关系
+2，以及简单go 自动化测试 类似php 的 phpunit
+*/
+
 // 引入其它包
 import (
 	"fmt"
