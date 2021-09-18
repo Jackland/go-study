@@ -1,6 +1,6 @@
 ### go mod 命令
 1,GO111MODULE
-```bigquery
+```text
 GO111MODULE 有三个值：off, on和auto（默认值）。
 
 GO111MODULE=off，go命令行将不会支持module功能，寻找依赖包的方式将会沿用旧版本那种通过vendor目录或者GOPATH模式来查找。
@@ -18,3 +18,4 @@ go env -w GOPROXY=https://goproxy.io,direct //七牛云 direct  表示源地址�
 ```
 
 2,go mod init 生成go.mod文件
+3,go get url 安装goo 依赖安装包
