@@ -1,10 +1,10 @@
 package main
+
 import (
 	"fmt"
 	"github.com/aceld/zinx/ziface"
 	"github.com/aceld/zinx/znet"
 )
-
 
 func main() {
 	//1 创建一个server句柄
@@ -16,7 +16,6 @@ func main() {
 	//3 开启服务
 	s.Serve()
 }
-
 
 //ping test 自定义路由
 type PingRouter struct {

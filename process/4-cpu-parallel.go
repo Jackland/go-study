@@ -1,0 +1,48 @@
+package main
+
+import (
+	"fmt"
+	"runtime"
+	"time"
+)
+
+/**
+利用多核 CPU 实现并行计算
+
+1,你也可以在 Go 语言中通过调用 runtime.NumCPU() 方法获取 CPU 核心数。
+
+2,IO 密集型计算通过异步、协程来解决
+
+*/
+
+func sum(seq int, ch chan int) {
+	defer close(ch)
+	sum := 0
+	for i := 1; i <= 10000000; i++ {
+		sum += i
+	}
+	fmt.Printf("子协程%d运算结果:%d\n", seq, sum)
+	ch <- sum
+}
+
+func main() {
+	// 启动时间
+	start := time.Now()
+	// 最大 CPU 核心数
+	cpus := runtime.NumCPU()
+	runtime.GOMAXPROCS(cpus) //runtime.GOMAXPROCS() 方法设置程序运行时可以使用的最大核心数，
+	chs := make([]chan int, cpus)
+	for i := 0; i < len(chs); i++ {
+		chs[i] = make(chan int, 1)
+		go sum(i, chs[i])
+	}
+	sum := 0
+	for _, ch := range chs {
+		res := <-ch
+		sum += res
+	}
+	// 结束时间
+	end := time.Now()
+	// 打印耗时
+	fmt.Printf("最终运算结果: %d, 执行耗时(s): %f\n", sum, end.Sub(start).Seconds())
+}
